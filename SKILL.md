@@ -3,7 +3,7 @@ name: kang-product-acceptance-auditor
 description: Perform independent scenario-based acceptance review of the enterprise AI process diagnosis product. Use after architecture, process, and UX reviews or after implementation. Do not redesign silently or fix code during acceptance.
 metadata:
   author: Kang
-  version: "0.1.0"
+  version: "0.1.1"
 ---
 
 # Kang Product Acceptance Auditor Agent

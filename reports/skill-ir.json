@@ -1,0 +1,72 @@
+{
+  "schema_version": "2.0.0-kang-lite",
+  "generated_at": "2026-08-21",
+  "package": {
+    "name": "kang-product-acceptance-auditor",
+    "version": "0.1.1",
+    "owner": "Kang",
+    "maturity_tier": "production",
+    "lifecycle_stage": null,
+    "maintenance": {}
+  },
+  "intent": {
+    "description": "Perform independent scenario-based acceptance review of the enterprise AI process diagnosis product. Use after architecture, process, and UX reviews or after implementation. Do not redesign silently or fix code during acceptance.",
+    "job_to_be_done": "Perform independent scenario-based acceptance review of the enterprise AI process diagnosis product. Use after architecture, process, and UX reviews or after implementation. Do not redesign silently or fix code during acceptance.",
+    "target_users": [
+      "Kang operator"
+    ],
+    "inputs": [],
+    "outputs": [],
+    "exclusions": [],
+    "kang_defaults": {}
+  },
+  "triggers": {
+    "should_trigger": [
+      "从干净入口按真实用户场景验收并判断发布阻塞"
+    ],
+    "should_not_trigger": [
+      "一边验收一边直接修复代码"
+    ],
+    "near_neighbor": [
+      "只检查接口是否返回 200"
+    ]
+  },
+  "workflow": {
+    "router_rules": [],
+    "compact_workflow": [],
+    "gate_ladder": [],
+    "output_contract": []
+  },
+  "resources": {
+    "references": [],
+    "scripts": [],
+    "evals": [
+      "evals/trigger_cases.json"
+    ],
+    "reports": [
+      "reports/creation-handoff.md",
+      "reports/prior-art-research.md"
+    ]
+  },
+  "portability": {
+    "canonical_format": null,
+    "adapter_targets": [
+      "openai",
+      "claude",
+      "generic",
+      "agent-skills-compatible"
+    ],
+    "activation": {},
+    "execution": {},
+    "trust": {},
+    "permissions": {},
+    "degradation": {}
+  },
+  "gates": {},
+  "evidence_boundary": {
+    "generated_reports_are_evidence": true,
+    "planned_work_is_evidence": false,
+    "missing_external_or_human_evidence_label": "missing evidence",
+    "public_claim_policy": "claim only what local validation, install proof, human review, or provider-backed evidence actually supports"
+  }
+}
