@@ -1,0 +1,6 @@
+interface:
+  display_name: Kang Product Acceptance Auditor
+  short_description: 独立验收真实角色场景和发布阻塞
+  default_prompt: 使用 $kang-product-acceptance-auditor 从干净入口执行独立场景验收。
+compatibility:
+  adapter_targets: [openai, claude, generic, agent-skills-compatible]
