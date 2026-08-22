@@ -1,0 +1,153 @@
+{
+  "ok": true,
+  "threshold": 0.3,
+  "description_concepts": [
+    "acceptance",
+    "evidence",
+    "scenario"
+  ],
+  "missing_description_concepts": [],
+  "summary": {
+    "total": 11,
+    "passed": 11,
+    "false_positive": 0,
+    "false_negative": 0,
+    "pass_rate": 1.0
+  },
+  "failures": [],
+  "results": {
+    "should_trigger": [
+      {
+        "prompt": "CRM 版本完成后从干净入口验收新建客户、主管复核和财务确认",
+        "family": "crm",
+        "expected_trigger": true,
+        "predicted_trigger": true,
+        "passed": true,
+        "score": 0.333,
+        "matched_concepts": [
+          "acceptance"
+        ],
+        "negative_pattern": null
+      },
+      {
+        "prompt": "按作者、编辑、法务三个真实场景独立验收投稿到发布全链路",
+        "family": "content",
+        "expected_trigger": true,
+        "predicted_trigger": true,
+        "passed": true,
+        "score": 0.667,
+        "matched_concepts": [
+          "acceptance",
+          "scenario"
+        ],
+        "negative_pattern": null
+      },
+      {
+        "prompt": "验收采购申请的权限隔离、驳回补充材料、超时和重新进入",
+        "family": "approval",
+        "expected_trigger": true,
+        "predicted_trigger": true,
+        "passed": true,
+        "score": 0.333,
+        "matched_concepts": [
+          "acceptance"
+        ],
+        "negative_pattern": null
+      },
+      {
+        "prompt": "从运营人员入口验收活动配置、送审、发布失败和回滚",
+        "family": "game-ops",
+        "expected_trigger": true,
+        "predicted_trigger": true,
+        "passed": true,
+        "score": 0.333,
+        "matched_concepts": [
+          "acceptance"
+        ],
+        "negative_pattern": null
+      },
+      {
+        "prompt": "按客服、组长和管理员路径判断工单台是否满足发布契约",
+        "family": "internal-tool",
+        "expected_trigger": true,
+        "predicted_trigger": true,
+        "passed": true,
+        "score": 0.667,
+        "matched_concepts": [
+          "acceptance",
+          "scenario"
+        ],
+        "negative_pattern": null
+      }
+    ],
+    "should_not_trigger": [
+      {
+        "prompt": "发现审批按钮报错，请直接改代码并部署",
+        "family": "implementation",
+        "expected_trigger": false,
+        "predicted_trigger": false,
+        "passed": true,
+        "score": 0.0,
+        "matched_concepts": [],
+        "negative_pattern": null
+      },
+      {
+        "prompt": "只检查发布 API 是否返回 200",
+        "family": "api-only",
+        "expected_trigger": false,
+        "predicted_trigger": false,
+        "passed": true,
+        "score": 0.333,
+        "matched_concepts": [
+          "acceptance"
+        ],
+        "negative_pattern": "API"
+      },
+      {
+        "prompt": "只根据截图提出新版工作台设计",
+        "family": "ux-design",
+        "expected_trigger": false,
+        "predicted_trigger": false,
+        "passed": true,
+        "score": 0.0,
+        "matched_concepts": [],
+        "negative_pattern": null
+      }
+    ],
+    "near_neighbor": [
+      {
+        "prompt": "检查采购申请节点的责任、证据、驳回和升级路径",
+        "family": "process-reviewer",
+        "expected_trigger": false,
+        "predicted_trigger": false,
+        "passed": true,
+        "score": 0.667,
+        "matched_concepts": [
+          "evidence",
+          "scenario"
+        ],
+        "negative_pattern": "节点的责任"
+      },
+      {
+        "prompt": "审查新人第一次进入工单台是否知道下一步",
+        "family": "ux-auditor",
+        "expected_trigger": false,
+        "predicted_trigger": false,
+        "passed": true,
+        "score": 0.0,
+        "matched_concepts": [],
+        "negative_pattern": null
+      },
+      {
+        "prompt": "定义管理员、组长和经办人的模块与数据权限",
+        "family": "product-architect",
+        "expected_trigger": false,
+        "predicted_trigger": false,
+        "passed": true,
+        "score": 0.0,
+        "matched_concepts": [],
+        "negative_pattern": null
+      }
+    ]
+  }
+}
