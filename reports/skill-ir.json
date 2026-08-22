@@ -1,17 +1,17 @@
 {
   "schema_version": "2.0.0-kang-lite",
-  "generated_at": "2026-08-21",
+  "generated_at": "2026-08-22",
   "package": {
     "name": "kang-product-acceptance-auditor",
-    "version": "0.1.1",
+    "version": "0.2.0",
     "owner": "Kang",
     "maturity_tier": "production",
     "lifecycle_stage": null,
     "maintenance": {}
   },
   "intent": {
-    "description": "Perform independent scenario-based acceptance review of the enterprise AI process diagnosis product. Use after architecture, process, and UX reviews or after implementation. Do not redesign silently or fix code during acceptance.",
-    "job_to_be_done": "Perform independent scenario-based acceptance review of the enterprise AI process diagnosis product. Use after architecture, process, and UX reviews or after implementation. Do not redesign silently or fix code during acceptance.",
+    "description": "Perform independent, scenario-based acceptance review of a released or release-candidate product across SaaS, internal tools, workflow products, and digital services. Use when a product contract is approved and real user paths, permissions, handoffs, recovery, evidence, and release blockers must be judged. Do not use for coding, redesign, unit-only testing, API-only testing, or acceptance while silently fixing defects.",
+    "job_to_be_done": "Perform independent, scenario-based acceptance review of a released or release-candidate product across SaaS, internal tools, workflow products, and digital services. Use when a product contract is approved and real user paths, permissions, handoffs, recovery, evidence, and release blockers must be judged. Do not use for coding, redesign, unit-only testing, API-only testing, or acceptance while silently fixing defects.",
     "target_users": [
       "Kang operator"
     ],
@@ -22,13 +22,21 @@
   },
   "triggers": {
     "should_trigger": [
-      "从干净入口按真实用户场景验收并判断发布阻塞"
+      "CRM 版本完成后从干净入口验收新建客户、主管复核和财务确认",
+      "按作者、编辑、法务三个真实场景独立验收投稿到发布全链路",
+      "验收采购申请的权限隔离、驳回补充材料、超时和重新进入",
+      "从运营人员入口验收活动配置、送审、发布失败和回滚",
+      "按客服、组长和管理员路径判断工单台是否满足发布契约"
     ],
     "should_not_trigger": [
-      "一边验收一边直接修复代码"
+      "发现审批按钮报错，请直接改代码并部署",
+      "只检查发布 API 是否返回 200",
+      "只根据截图提出新版工作台设计"
     ],
     "near_neighbor": [
-      "只检查接口是否返回 200"
+      "检查采购申请节点的责任、证据、驳回和升级路径",
+      "审查新人第一次进入工单台是否知道下一步",
+      "定义管理员、组长和经办人的模块与数据权限"
     ]
   },
   "workflow": {
@@ -38,14 +46,19 @@
     "output_contract": []
   },
   "resources": {
-    "references": [],
+    "references": [
+      "references/acceptance-rubric.md"
+    ],
     "scripts": [],
     "evals": [
+      "evals/output_cases.json",
       "evals/trigger_cases.json"
     ],
     "reports": [
       "reports/creation-handoff.md",
-      "reports/prior-art-research.md"
+      "reports/prior-art-research.md",
+      "reports/skill-ir.json",
+      "reports/trigger-eval.json"
     ]
   },
   "portability": {

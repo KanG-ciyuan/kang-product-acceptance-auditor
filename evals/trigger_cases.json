@@ -1,1 +1,28 @@
-{"recommended_threshold":0.3,"description_required_concepts":["acceptance","scenario","evidence"],"positive_concepts":{"acceptance":["acceptance","验收","发布"],"scenario":["scenario","场景","路径"],"evidence":["evidence","证据"]},"negative_patterns":["修复代码","翻译"],"should_trigger":[{"text":"从干净入口按真实用户场景验收并判断发布阻塞","family":"acceptance"}],"should_not_trigger":[{"text":"一边验收一边直接修复代码","family":"implementation"}],"near_neighbor":[{"text":"只检查接口是否返回 200","family":"api"}]}
+{
+  "recommended_threshold": 0.3,
+  "description_required_concepts": ["acceptance", "scenario", "evidence"],
+  "positive_concepts": {
+    "acceptance": ["acceptance", "验收", "发布", "release"],
+    "scenario": ["scenario", "场景", "路径", "真实用户"],
+    "evidence": ["evidence", "证据", "复现", "运行"],
+    "permissions": ["permission", "权限", "角色"]
+  },
+  "negative_patterns": ["修复代码", "翻译", "只检查 API", "API", "单元测试", "节点的责任"],
+  "should_trigger": [
+    {"text": "CRM 版本完成后从干净入口验收新建客户、主管复核和财务确认", "family": "crm"},
+    {"text": "按作者、编辑、法务三个真实场景独立验收投稿到发布全链路", "family": "content"},
+    {"text": "验收采购申请的权限隔离、驳回补充材料、超时和重新进入", "family": "approval"},
+    {"text": "从运营人员入口验收活动配置、送审、发布失败和回滚", "family": "game-ops"},
+    {"text": "按客服、组长和管理员路径判断工单台是否满足发布契约", "family": "internal-tool"}
+  ],
+  "should_not_trigger": [
+    {"text": "发现审批按钮报错，请直接改代码并部署", "family": "implementation"},
+    {"text": "只检查发布 API 是否返回 200", "family": "api-only"},
+    {"text": "只根据截图提出新版工作台设计", "family": "ux-design"}
+  ],
+  "near_neighbor": [
+    {"text": "检查采购申请节点的责任、证据、驳回和升级路径", "family": "process-reviewer"},
+    {"text": "审查新人第一次进入工单台是否知道下一步", "family": "ux-auditor"},
+    {"text": "定义管理员、组长和经办人的模块与数据权限", "family": "product-architect"}
+  ]
+}

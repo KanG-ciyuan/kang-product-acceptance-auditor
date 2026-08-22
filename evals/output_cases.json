@@ -1,0 +1,16 @@
+{
+  "cases": [
+    {
+      "id": "content-release-gate",
+      "prompt": "使用 $kang-product-acceptance-auditor 从干净入口独立验收作者、编辑、法务投稿到发布。",
+      "input_files": [],
+      "assertions": [
+        "Output requires environment, clean entry, persona, goal, steps, expected, observed, and runtime evidence",
+        "Verdict uses pass, conditional_pass, fail, or not_testable with explicit gates",
+        "Permission, handoff, recovery, and re-entry are tested where contracted",
+        "No code is changed and no prior report is treated as runtime evidence"
+      ],
+      "human_notes": "Check that missing runtime evidence prevents pass and that each blocker has a return owner."
+    }
+  ]
+}
